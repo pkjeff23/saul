@@ -29,10 +29,10 @@
             <a href="productos"><span class="fa fa-sticky-note"></span>Productos</a>
           </li>
           <li>
-            <a href="productos"><span class="fa fa-sticky-note"></span>Quienes somos</a>
+            <a href="quienesomos1"><span class="fa fa-sticky-note"></span>Quienes somos</a>
           </li>
           <li>
-            <a href="productos"><span class="fa fa-sticky-note"></span>Servicios</a>
+            <a href="servicios1"><span class="fa fa-sticky-note"></span>Servicios</a>
           </li>
         </ul>
 

@@ -2,21 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Portadas;
+use App\Products;
 use Illuminate\Http\Request;
 use App;
-use Illuminate\Support\Facades\Storage;
 
-class PortadasController extends Controller
+class Quienes1Controller extends Controller
 {
     public function __construct()
     {
     }
     
     public function index(Request $request)
-    {
-        $portadas = Portadas::all();
-        return View('admin.portada.index')->with('portadas',$portadas);
+    {   
+        return View('admin.Quienes.index');
     }
 
     
@@ -41,9 +39,13 @@ class PortadasController extends Controller
         return redirect()->route('clients.index');
     }
 
-    public function show(Clients $clients)
+    public function show($id)
     {
-        //
+        $a = Products::find($id);
+        $productCat = Products::where('category', '=', $a->category)->paginate(15);
+        return view('catalogo.show')
+            ->with('Products', $a)        
+            ->with('productsCat', $productCat);        
     }
 
     public function edit(Clients $client)
@@ -69,7 +71,7 @@ class PortadasController extends Controller
 
     public function destroy(Portadas $portada)
     {
-        Storage::delete(public_path().'/img/', $portada->imagen);
+
         $portada->delete();
 
         return redirect()->route('portadas.index');

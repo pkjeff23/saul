@@ -22,6 +22,8 @@ Route::resource('/clients', 'ClientsController');
 Route::resource('/portadas', 'PortadasController');
 Route::resource('/secciones', 'SeccionController');
 Route::resource('/productos', 'ProductosController');
+Route::resource('/quienesomos1', 'Quienes1Controller');
+Route::resource('/servicios1', 'Servicios1Controller');
 
 Route::get('/login', function () {
     return view('auth/login');
