@@ -2,13 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Products;
-Route::get('search', function() {
-    $query = '1'; // <-- Change the query for testing.
-
-    $articles = App\Products::search($query)->get();
-
-    return $articles;
-});
 
 Route::resource('/users', 'UserController');
 Route::resource('/admin', 'adminController');
@@ -19,10 +12,11 @@ Route::resource('/servicios', 'ServiciosController');
 
 Route::resource('/clients', 'ClientsController');
 
+Route::resource('/category', 'categoriasController');
 Route::resource('/portadas', 'PortadasController');
 Route::resource('/secciones', 'SeccionController');
 Route::resource('/productos', 'ProductosController');
-Route::resource('/quienesomos1', 'Quienes1Controller');
+Route::resource('/aboutus', 'Quienes1Controller');
 Route::resource('/servicios1', 'Servicios1Controller');
 
 Route::get('/login', function () {

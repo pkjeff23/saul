@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
 use App\Portadas;
-use App\Aboutus;
+use App\Categorias;
 use Illuminate\Http\Request;
 use App;
+use Illuminate\Support\Facades\Storage;
 
-class Quienes1Controller extends Controller
+class categoriasController extends Controller
 {
     public function __construct()
     {
     }
     
     public function index(Request $request)
-    {   
-        $portadas = Aboutus::all();
-        return View('admin.Quienes.index')->with('portadas',$portadas);
+    {
+        $portadas = Categorias::all();
+        return View('admin.categoria.index')->with('portadas',$portadas);
     }
 
     
@@ -31,24 +31,21 @@ class Quienes1Controller extends Controller
         if($request->hasFile('img')){
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/aboutus', $name);
+            $file->move(public_path().'/img/categorias', $name);
         }
-        $client = new Aboutus;
+        $client = new Categorias;
 
         $client->imagen = $name;
-        $client->mision = $request->mision;
-        $client->vision = $request->vision;
+        $client->title = $request->title;
+        $client->state = $request->state;
+        $client->user_id = 1;
         $client->save();
         return redirect()->route('clients.index');
     }
 
-    public function show($id)
+    public function show(Clients $clients)
     {
-        $a = Products::find($id);
-        $productCat = Products::where('category', '=', $a->category)->paginate(15);
-        return view('catalogo.show')
-            ->with('Products', $a)        
-            ->with('productsCat', $productCat);        
+        //
     }
 
     public function edit(Clients $client)
@@ -74,7 +71,7 @@ class Quienes1Controller extends Controller
 
     public function destroy(Portadas $portada)
     {
-
+        Storage::delete(public_path().'/img/', $portada->imagen);
         $portada->delete();
 
         return redirect()->route('portadas.index');

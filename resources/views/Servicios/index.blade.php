@@ -1,6 +1,6 @@
 
 {{-- EXTEND --}}
-@extends('catalogo.layout')
+@extends('layout')
 
 {{-- VARS --}}
 

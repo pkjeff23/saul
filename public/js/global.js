@@ -64,3 +64,4 @@ search.addWidgets([
 
 search.start();
 
+$( ".eapps-link" ).hide();

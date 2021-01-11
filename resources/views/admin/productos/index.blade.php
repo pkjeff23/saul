@@ -143,7 +143,11 @@
   <div class="row">
     <div class="form-group col-md-8">
       <label for="category">Categoria:</label>
-      <input type="text" class="form-control" name="category" id="category">
+      <select class="form-control" name="category">
+        @foreach ($categorias as $categoria)
+          <option value='{{$categoria->title}}'>{{$categoria->title}}</option>         
+        @endforeach
+      </select>
     </div>
   </div>
   <div class="row">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\Aboutus;
 use Illuminate\Http\Request;
 use App;
 
@@ -14,7 +15,8 @@ class QuienesController extends Controller
     
     public function index(Request $request)
     {   
-        return View('Quienes.index');
+        $portadas = Aboutus::all();
+        return View('Quienes.index')->with('portadas',$portadas);
     }
 
     

@@ -1,22 +1,20 @@
 
 {{-- EXTEND --}}
-@extends('catalogo.layout')
+@extends('layout')
 
 {{-- VARS --}}
 
 
 {{-- BUTTONS --}}
 @section('content')
-<div class="row">
+<div class="row" style="margin-top: 40px;margin-right: 0px;margin-left: 0px;">
   <div class="col-md-3">
     <div class="panel panel-default">
       <div class="panel-heading" style="background-color: #003c94;color: white;">CATEGORIAS</div>
       <div class="panel-body">
-          <h4 onclick="myFunction1('Accesorios')"><span class="fa fa-check" style="color:#4CAF50"></span> - Accesorios</h4>
-          <h4 onclick="myFunction1('Accesorios')"><span class="fa fa-check" style="color:#4CAF50"></span> - Accesorios para portatil</h4>
-          <h4 onclick="myFunction1('Accesorios')"><span class="fa fa-check" style="color:#4CAF50"></span> - Accesorios para rack</h4>
-          <h4 onclick="myFunction1('Accesorios')"><span class="fa fa-check" style="color:#4CAF50"></span> - Adaptador de corriente</h4>
-            <h4 onclick="myFunction1('Accesorios')"><span class="fa fa-check" style="color:#4CAF50"></span> - Adaptadores de video</h4>
+        @foreach ($categorias as $categoria)
+        <h4 class="text-upper" onclick="myFunction1('{{$categoria->title}}')"><span class="fa fa-check" style="color:#4CAF50"></span> {{$categoria->title}}</h4>
+        @endforeach
       </div>
     </div>
   </div>
@@ -28,9 +26,9 @@
   
   <div class="row">
     @foreach ($portadas as $portada)
-  <div class="imagenR item col-xs-6 col-lg-4">
+  <div class="item col-xs-6 col-lg-4">
   <div class="thumbnail">
-    <a onclick="window.location='{{ route('catalogo.show', $portada->id) }}'"><img class="group list-group-image pruebaimg" src="{{ asset('img/'. $portada->imagen) }}" alt="" /></a>
+    <a onclick="window.location='{{ route('catalogo.show', $portada->id) }}'"><img class="imagenR group list-group-image pruebaimg" src="{{ asset('img/productos/'.$portada->category .'/'.$portada->imagen) }}" alt="" /></a>
   <div class="caption">
   <h4 class="group inner list-group-item-heading" style="text-overflow:ellipsis; overflow:hidden; white-space: nowrap;">
   {{$portada->title}}</h4>
@@ -59,7 +57,7 @@
   </div>
   <script type = "text/javascript" language = "javascript">
     function myFunction1(p1) {
-      window.location = "http://localhost/public/catalogo?category="+ p1;
+      window.location = "catalogo?category="+ p1;
     }
   </script>
 @endsection

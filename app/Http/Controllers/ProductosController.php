@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\Categorias;
 use Illuminate\Http\Request;
 use App;
 
@@ -15,7 +16,8 @@ class ProductosController extends Controller
     public function index(Request $request)
     {
         $clients = Products::where('state','=',1)->paginate(10);
-        return View('admin.productos.index')->with('clients',$clients);
+        $categorias = Categorias::all();
+        return View('admin.productos.index')->with('clients',$clients)->with('categorias',$categorias);
     }
 
     
@@ -29,7 +31,7 @@ class ProductosController extends Controller
         if($request->hasFile('img')){
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/', $name);
+            $file->move(public_path().'/img/productos/'.$request->category, $name);
         }
         $client = new Products;
         

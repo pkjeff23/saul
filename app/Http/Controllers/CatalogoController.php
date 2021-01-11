@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\Categorias;
 use Illuminate\Http\Request;
 use App;
 
@@ -23,7 +24,8 @@ class CatalogoController extends Controller
         }else {
             $portadas = Products::where('title', 'like', '%'.$request->q.'%')->paginate(15);
         }
-        return View('catalogo.index')->with('portadas',$portadas);
+        $categorias = Categorias::all();
+            return View('catalogo.index')->with('portadas',$portadas)->with('categorias',$categorias);
     }
 
     

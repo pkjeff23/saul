@@ -16,7 +16,10 @@
 				<h1><a href="admin" class="logo"><img src="{{ asset('img/logo-ctsaul.png') }}" height="30"></a></h1>
         <ul class="list-unstyled components mb-5">
           <li class="">
-            <a href="portadas"><span class="fa fa-home"></span>portadas</a>
+            <a href="category"><span class="fa fa-home"></span>Categorias</a>
+          </li>
+          <li class="">
+            <a href="portadas"><span class="fa fa-home"></span>Portadas</a>
           </li>
           <li>
               <a href="clients"><span class="fa fa-user"></span>Clientes y marcas</a>
@@ -28,7 +31,7 @@
             <a href="productos"><span class="fa fa-sticky-note"></span>Productos</a>
           </li>
           <li>
-            <a href="quienesomos1"><span class="fa fa-sticky-note"></span>Quienes somos</a>
+            <a href="aboutus"><span class="fa fa-sticky-note"></span>Quienes somos</a>
           </li>
           <li>
             <a href="servicios1"><span class="fa fa-sticky-note"></span>Servicios</a>

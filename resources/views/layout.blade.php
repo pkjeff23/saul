@@ -8,7 +8,7 @@
     <!-- CSS -->
     
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('lib/fontawesome-free-5.15.1-web/css/all.min.css') }}"/>
     
@@ -58,186 +58,7 @@
     </a>
   </div>
   
-  <div class="container--head img-portada-height">
-    <div id="carousel-generic" class="carousel slide" data-bs-ride="carousel">
-
-      <ol class="carousel-indicators">
-        @foreach ($portadas as $key=> $portada)
-        <li data-target="#carousel-generic" data-slide-to="{{$key}}" class="{{ ( $key == 0) ? 'active' : '' }}"></li>
-        @endforeach
-      </ol>
-
-      <div class="carousel-inner img-portada-height">
-        @foreach ($portadas as $key => $portada)
-        <div class="carousel-item img-portada-height {{ ( $key == 0) ? 'active' : '' }}">
-          <img class="img-responsive d-block w-100 img-portada" src="{{ asset('img/portadas/'. $portada->imagen) }}" alt="portada">
-        </div>
-        @endforeach
-      </div>
-    
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
-  </div>
-    
-  <div class="wrap mcb-wrap one col-centrar column-margin-0px valign-top clearfix" style="background-color:#00b600">
-    <div class="mcb-wrap-inner">
-      <div class="column-ventas">
-        <div class="hover_box">
-          <a href="https://ventasctsaul.com/" target="_blank">
-            <div class="hover_box_wrapper">
-              <img style="width: 100%;height: 100px;" class="visible_photo scale-with-grid" src="{{ asset('img/Compra.png') }}" alt="Compra">
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section class="new-collections opposite-background col-12">
-    <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">CATEGORÍAS</h3>
-    
-    <div class="row mx-auto justify-content-center align-items-center">
-      <div class="col-6 col-md-4 col-lg-3">
-          <div class="img-category p-3 border">
-            <a href="https://ventasctsaul.com/Productos/Ver/233">
-              <img class="img-responsive" src="{{ asset('img/categorias/tintas.jpg') }}" alt="categoria">
-              <div class="text-block-image">
-                <h4>Tintas</h4>
-              </div>
-            </a>
-          </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-          <div class="img-category p-3 border">
-            <a href="https://ventasctsaul.com/Productos/Ver/233">
-              <img class="img-responsive" src="{{ asset('img/categorias/accesorios.png') }}" alt="categoria">
-              <div class="text-block-image">
-                <h4>Accesorios</h4>
-              </div>
-            </a>
-          </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-          <div class="img-category p-3 border">
-            <a href="https://ventasctsaul.com/Productos/Ver/233">
-              <img class="img-responsive" src="{{ asset('img/categorias/accesoriospara.jpg') }}" alt="categoria">
-              <div class="text-block-image">
-                <h4>Accesorios para portatil</h4>
-              </div>
-            </a>
-          </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-          <div class="img-category p-3 border">
-            <a href="https://ventasctsaul.com/Productos/Ver/233">
-              <img class="img-responsive" src="{{ asset('img/categorias/accesoriosrack.jpg') }}" alt="categoria">
-              <div class="text-block-image">
-                <h4>Accesorios para rack</h4>
-              </div>
-            </a>
-          </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-          <div class="img-category p-3 border">
-            <a href="https://ventasctsaul.com/Productos/Ver/233">
-              <img class="img-responsive" src="{{ asset('img/categorias/adaptador.jpg') }}" alt="categoria">
-              <div class="text-block-image">
-                <h4>Adaptadores de corriente</h4>
-              </div>
-            </a>
-          </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3">
-          <div class="img-category p-3 border">
-            <a href="https://ventasctsaul.com/Productos/Ver/233">
-              <img class="img-responsive" src="{{ asset('img/categorias/adaptadorvi.jpg') }}" alt="categoria">
-              <div class="text-block-image">
-                <h4>Adaptadores de video</h4>
-              </div>
-            </a>
-          </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="new-collections col-12">
-    <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">Destacados</h3>
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="carrusel-robots bx-viewport"  style="max-width: 1255px; margin: 0px auto;">    
-        @foreach ($productsDes as $productDes)
-        <div class="thumbnail" style="float: left; list-style: none; position: relative; width: 155px; margin-right: 20px;">
-        <a href="https://ventasctsaul.com/Productos/Ver/233" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="img-responsive" src="{{ asset('img/'.$productDes->imagen) }}" alt="{{$productDes->title}}"></a>
-            <div class="caption">
-                <h6 class="text-center" style="text-overflow:ellipsis; overflow:hidden; white-space: nowrap;font-size: 26px;">
-                    <a href="https://ventasctsaul.com/Productos/Ver/233">{{ $productDes->title}} </a>
-                </h6>
-              </div>
-        </div>
-        @endforeach
-      </div>
-    </div>
-  </section>
-   
-
-<section class="new-collections col-12 opposite-background">
-  <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">Productos nuevos</h3>
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    
-    <div class="carrusel-robots bx-viewport"  style="max-width: 1255px; margin: 0px auto;">
-      @foreach ($productsNew as $productNew)
-      <div class="thumbnail" style="float: left; list-style: none; position: relative; width: 155px; margin-right: 20px;">
-        <a href="https://ventasctsaul.com/Productos/Ver/233" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="img-responsive" src="{{ asset('img/'.$productNew->imagen) }}" alt="{{$productNew->title}}"></a>
-             <div class="caption">
-                <h6 class="text-center" style="text-overflow:ellipsis; overflow:hidden; white-space: nowrap;font-size: 26px;">
-                    <a href="https://ventasctsaul.com/Productos/Ver/233">{{ $productNew->title}} </a>
-                </h6>
-              </div>
-        </div>
-      @endforeach
-    </div>
-  </div>
-
-</section>
-
- <section style="margin-top: 30px">
-  <div class="row" style="margin-right: 0px;margin-left: 0px;">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="col-lg-7 col-12">
-      <p class="text-center" style="font-size:50px !important; color:#003c94; font-family:'Billabong' !important; text-transform: capitalize  !important; padding: 20px 10px; ">
-        instagram
-      </p>
-    </div>
-    <div class="col-lg-4 col-12">
-      <p style="font-size:50px !important; color:#003c94; font-family:'Facebook' !important; text-transform: lowercase !important; padding: 20px 10px;">
-        Facebook
-      </p>
-      <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCT-Saul-532296690259418%2F&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="500" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-    </div>
-  </div>
- </section>
-
- <section class="new-collections brands col-12 opposite-background">
-  <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">Nuestros Clientes</h3>
-  <div class="carrusel-robots1 mt-3" style="width: 100%; overflow: hidden; position: relative; height: 155px;">
-    @foreach ($clients as $client)
-      <div style="float: left; list-style: none; position: relative; width: 200px; margin-right: 50px;"><img class="img-responsive" src="{{ asset('img/'.$client->imagen) }}"  alt="Robot 1"/></div>
-    @endforeach
-  </div>  
- </section>
+  @yield('content')
 
   <!-- Footer -->
   <div class="footer">
@@ -299,7 +120,7 @@
       autoplay: true,
     });
     $('.carrusel-robots1').slick({
-      slidesToShow: 4,
+      slidesToShow: 5,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 2000,
@@ -321,7 +142,7 @@
   }
     $( "#inputsearch" ).change(function() {
       let a = $("#inputsearch" ).val();
-      window.location = "http://127.0.0.1:8000/catalogo?q="+ a;
+      window.location = "catalogo?q="+ a;
     });
     </script>
     <script type="text/javascript" language="javascript" src="{{ asset('js/global.js') }}"></script>

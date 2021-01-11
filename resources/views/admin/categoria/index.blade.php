@@ -7,15 +7,12 @@
 
 {{-- BUTTONS --}}
 @section('content')
-<h2>Gestion de Quienes somos</h2>
-
-@if ( count($portadas) == 0)
+<h2>Gestion de Categorias</h2>
 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="open"><i class="fa fa-plus"></i> Crear</button>
-@endif
-    <div class="row">
+    <div class="row" >
         @foreach ($portadas as $portada)
         <div style="margin-bottom: 40px;margin-top: 40px" class="col-12 col-lg-4">
-            <img src="{{ asset('img/'. $portada->imagen) }}" alt="..." style="width:100%;height:120px">
+            <img src="{{ asset('img/categorias/'. $portada->imagen) }}" alt="..." style="width:100%;height:120px">
             <strong>Fecha de creacion:</strong> {{$portada->created_at}} <br>
             <strong>Usuario editor:</strong> admin <br>
             <strong>Fecha de edicion:</strong> {{$portada->updated_at}} <br>
@@ -52,7 +49,7 @@
         @endforeach
     </div>
 
-    <form method="post" action="aboutus" id="form" enctype="multipart/form-data">
+    <form method="post" action="category" id="form" enctype="multipart/form-data">
         @csrf
     <!-- Modal -->
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -61,7 +58,7 @@
       <div class="alert alert-danger" style="display:none"></div>
       <div class="modal-header">
         
-        <h5 class="modal-title">Crear Quienes somos</h5>
+        <h5 class="modal-title">Crear Categoria</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -75,16 +72,19 @@
           </div>
           <div class="row">
             <div class="form-group col-md-8">
-            <label for="state">Misión:</label>
-            <textarea name="mision" id="" cols="40" rows="5"></textarea>
+              <label for="img">Nombre categoria:</label>
+              <input type="text" name="title" id="title">
+            </div>
           </div>
-        </div>
           <div class="row">
-            <div class="form-group col-md-8">
-            <label for="state">Visión:</label>
-            <textarea name="vision" id="" cols="40" rows="5"></textarea>
-      </div>
-    </div>
+             <div class="form-group col-md-8">
+                <label for="state">Estado:</label>
+                <select class="form-control" name="state" id="state">
+                  <option value=1>activo</option>
+                  <option value=0>inactivo</option>
+                </select>
+              </div>
+          </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
