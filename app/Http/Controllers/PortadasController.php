@@ -30,7 +30,7 @@ class PortadasController extends Controller
         if($request->hasFile('img')){
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/', $name);
+            $file->move(public_path().'/img/portadas', $name);
         }
         $client = new Portadas;
 
@@ -54,15 +54,18 @@ class PortadasController extends Controller
             ->with('client', $client);
     }
 
-    public function update(Request $request, Clients $client)
+    public function update(Request $request, Portadas $portada)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+        if($request->hasFile('img')){
+            $file = $request->file('img');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/portadas', $name);
+            $portada->imagen = $name;
+        }
 
-        $client->name = $request->name;
-        $client->dni = $request->dni;
-        $client->email = $request->email;
-        $client->address = $request->address;
-        $client->save();
+        $portada->state = $request->state;
+        $portada->user_id = 1;
+        $portada->save();
 
         return redirect()->route('clients.index');
     }

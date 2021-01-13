@@ -16,7 +16,7 @@ class categoriasController extends Controller
     
     public function index(Request $request)
     {
-        $portadas = Categorias::all();
+        $portadas = Categorias::where('state','=',1)->paginate(10);
         return View('admin.categoria.index')->with('portadas',$portadas);
     }
 
@@ -40,7 +40,7 @@ class categoriasController extends Controller
         $client->state = $request->state;
         $client->user_id = 1;
         $client->save();
-        return redirect()->route('clients.index');
+        return redirect()->route('category.index');
     }
 
     public function show(Clients $clients)
@@ -56,24 +56,29 @@ class categoriasController extends Controller
             ->with('client', $client);
     }
 
-    public function update(Request $request, Clients $client)
+    public function update(Request $request, Categorias $category)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+        if($request->hasFile('img')){
+            Storage::delete(public_path().'/img/', $category->imagen);
+            $file = $request->file('img');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/categorias', $name);
+            $category->imagen = $name;
+        }
 
-        $client->name = $request->name;
-        $client->dni = $request->dni;
-        $client->email = $request->email;
-        $client->address = $request->address;
-        $client->save();
+        $category->title = $request->title;
+        $category->state = $request->state;
+        $category->user_id = 1;
+        $category->save();
 
-        return redirect()->route('clients.index');
+        return redirect()->route('category.index');
     }
 
-    public function destroy(Portadas $portada)
+    public function destroy(Categorias $category)
     {
-        Storage::delete(public_path().'/img/', $portada->imagen);
-        $portada->delete();
+        Storage::delete(public_path().'/img/', $category->imagen);
+        $category->delete();
 
-        return redirect()->route('portadas.index');
+        return redirect()->route('category.index');
     }
 }

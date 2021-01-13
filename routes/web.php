@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Products;
 
 Route::resource('/users', 'UserController');
 Route::resource('/admin', 'adminController');

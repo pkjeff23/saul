@@ -12,7 +12,7 @@
     <div class="row" >
         @foreach ($portadas as $portada)
         <div style="margin-bottom: 40px;margin-top: 40px" class="col-12 col-lg-4">
-            <img src="{{ asset('img/'. $portada->imagen) }}" alt="..." style="width:100%;height:120px">
+            <img src="{{ asset('img/portadas/'. $portada->imagen) }}" alt="..." style="width:100%;height:120px">
             <strong>Fecha de creacion:</strong> {{$portada->created_at}} <br>
             <strong>Usuario editor:</strong> admin <br>
             <strong>Fecha de edicion:</strong> {{$portada->updated_at}} <br>
