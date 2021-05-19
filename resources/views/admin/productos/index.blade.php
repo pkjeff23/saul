@@ -23,7 +23,7 @@
     <tbody>
       @foreach ($clients as $client)
       <tr>
-        <th scope="row"><img src="{{ asset('img/'.$client->imagen) }}" width="100" alt="Robot 1"/></th>
+        <th scope="row"><img src="{{ asset('img/productos/'.$client->category.'/'.$client->imagen) }}" width="100" alt="Robot 1"/></th>
         <td>{{ $client->name }}</td>
         <td>07/11/2020</td>
         <td>07/11/2020</td>
@@ -54,19 +54,19 @@
             <div class="row">
                 <div class="form-group col-md-8">
                   <label for="img">imagen:</label>
-                  <input type="file" name="img" id="img">
+                  <input style="border: 1px solid #ced4da;!important" type="file" name="img" id="img">
                 </div>
               </div>
             <div class="row">
                 <div class="form-group col-md-8">
                   <label for="name">Nombre:</label>
-                  <input type="text" class="form-control" name="name" id="name" value={{ $client->name }}>
+                  <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="name" id="name" value={{ $client->name }}>
                 </div>
             </div>
             <div class="row">
                <div class="form-group col-md-8">
                   <label for="state">Estado:</label>
-                  <select class="form-control" name="state" id="state">
+                  <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state">
                     <option {{ ( $client->state == 1) ? 'selected' : '' }} value=1>activo</option>
                     <option {{ ( $client->state == 0) ? 'selected' : '' }} value=0>inactivo</option>
                   </select>
@@ -131,19 +131,20 @@
     <div class="row">
       <div class="form-group col-md-8">
         <label for="title">Nombre:</label>
-        <input type="text" class="form-control" name="title" id="title">
+        <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="title" id="title">
       </div>
   </div>
   <div class="row">
     <div class="form-group col-md-8">
       <label for="description">Description:</label>
-      <input type="text" class="form-control" name="description" id="description">
+      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="description" id="description">
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-8">
       <label for="category">Categoria:</label>
-      <select class="form-control" name="category">
+      <select style="border: 1px solid #ced4da;!important" class="form-control" name="category">
+        <option value=''>elija categoria</option>         
         @foreach ($categorias as $categoria)
           <option value='{{$categoria->title}}'>{{$categoria->title}}</option>         
         @endforeach
@@ -152,26 +153,38 @@
   </div>
   <div class="row">
     <div class="form-group col-md-8">
+      <label for="subcategory">Subcategoria:</label>
+      <select style="border: 1px solid #ced4da;!important" class="form-control" name="subcategory">
+        <option value=''>elija subcategoria</option>         
+        @foreach ($subcategorias as $subcategoria)
+          <option value='{{$subcategoria->title}}'>{{$subcategoria->title}}</option>         
+        @endforeach
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-8">
       <label for="brand">Marca:</label>
-      <input type="text" class="form-control" name="brand" id="brand">
+      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="brand" id="brand">
     </div>
   </div>
     <div class="row">
         <div class="form-group col-md-8">
           <label for="img">imagen:</label>
-          <input type="file" name="img" id="img">
+          <input style="border: 1px solid #ced4da;!important" type="file" name="img" id="img">
+          <label for="prueba" style="color: red;">El tamaño minimo de la imagen debe ser de 300 x 300 px</label>
         </div>
       </div>
       <div class="row">
           <div class="form-group col-md-8">
             <label for="price">Precio:</label>
-            <input type="text" class="form-control" name="price" id="price">
+            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="price" id="price">
           </div>
       </div>
       <div class="row">
          <div class="form-group col-md-8">
             <label for="state">Estado:</label>
-            <select class="form-control" name="state" id="state">
+            <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state">
               <option value=1>activo</option>
               <option value=0>inactivo</option>
             </select>
@@ -180,9 +193,9 @@
       <div class="row">
         <div class="form-group col-md-8">
            <label for="tienda">Disponible en tienda:</label>
-           <select class="form-control" name="tienda" id="tienda">
-             <option value=1>activo</option>
-             <option value=0>inactivo</option>
+           <select style="border: 1px solid #ced4da;!important" class="form-control" name="tienda" id="tienda">
+             <option value=1>Si</option>
+             <option value=0>No</option>
            </select>
          </div>
      </div>

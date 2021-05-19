@@ -16,7 +16,7 @@
             <strong>Fecha de creacion:</strong> {{$portada->created_at}} <br>
             <strong>Usuario editor:</strong> admin <br>
             <strong>Fecha de edicion:</strong> {{$portada->updated_at}} <br>
-            <strong>Estado:</strong> {{$portada->state}} <br>
+            <strong>Estado:</strong> {{ (1 == $portada->state) ? 'Activo' : 'Inactivo' }} <br>
             <button class="btn btn-success btn-sm"> <i class="fa fa-eye"></i></button>
             <button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#myModal1{{ $portada->id }}" id="open"><i class="fa fa-trash"></i></button>
             <form method="post" action="{{ route('portadas.destroy', ['portada' => $portada]) }}" id="form1" enctype="multipart/form-data">
@@ -68,12 +68,13 @@
             <div class="form-group col-md-8">
               <label for="img">imagen:</label>
               <input type="file" name="img" id="img">
+              <label for="prueba" style="color: red;">El tamaño minimo de la imagen debe ser de 2000 x 2000 px</label>
             </div>
           </div>
           <div class="row">
              <div class="form-group col-md-8">
                 <label for="state">Estado:</label>
-                <select class="form-control" name="state" id="state">
+                <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state">
                   <option value=1>activo</option>
                   <option value=0>inactivo</option>
                 </select>

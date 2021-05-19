@@ -1,11 +1,6 @@
-
 {{-- EXTEND --}}
 @extends('admin.layout')
 
-{{-- VARS --}}
-
-
-{{-- BUTTONS --}}
 @section('content')
 <h2>Gestion de Categorias</h2>
 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="open"><i class="fa fa-plus"></i> Crear</button>
@@ -133,18 +128,19 @@
             <div class="form-group col-md-8">
               <label for="img">imagen:</label>
               <input type="file" name="img" id="img">
+              <label for="prueba" style="color: red;">El tamaño minimo de la imagen debe ser de 240 x 300 px</label>
             </div>
           </div>
           <div class="row">
             <div class="form-group col-md-8">
               <label for="img">Nombre categoria:</label>
-              <input type="text" name="title" id="title">
+              <input style="border: 1px solid #ced4da;!important" type="text" name="title" id="title">
             </div>
           </div>
           <div class="row">
              <div class="form-group col-md-8">
                 <label for="state">Estado:</label>
-                <select class="form-control" name="state" id="state">
+                <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state">
                   <option value=1>activo</option>
                   <option value=0>inactivo</option>
                 </select>
@@ -160,4 +156,3 @@
     </div>
     </form>
 @endsection
-

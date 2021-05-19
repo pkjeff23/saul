@@ -9,7 +9,8 @@
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css">
-		<link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    
   </head>
   <body>
 		
@@ -26,35 +27,38 @@
 	  			</div>
 	  		</div>
         <ul class="list-unstyled components mb-5">
-          <li class="active">
-            <a href="category"><span class="fa fa-home"></span> Categorias</a>
+          <li class="">
+            <a href="category"><span class="fa fa-align-justify"></span> Categorias</a>
+          </li>
+          <li class="">
+            <a href="subcategory"><span class="fa fa-align-justify"></span> Subcategorias</a>
           </li>
           <li>
-            <a href="portadas"><span class="fa fa-home"></span> Portadas</a>
+            <a href="portadas"><span class="fa fa-address-book"></span> Portadas</a>
           </li>
           <li>
             <a href="clients"><span class="fa fa-user"></span> Clientes</a>
           </li>
           <li>
-            <a href=""><span class="fa fa-user"></span> Marcas</a>
+            <a href="brands"><span class="fa fa-copyright"></span> Marcas</a>
           </li>
           <li>
-            <a href="secciones"><span class="fa fa-sticky-note"></span> Secciones</a>
+            <a href="secciones"><span class="fa fa-bars"></span> Secciones</a>
           </li>
           <li>
-            <a href="productos"><span class="fa fa-sticky-note"></span> Productos</a>
+            <a href="productos"><span class="fa fa-product-hunt"></span> Productos</a>
           </li>
           <li>
-            <a href="aboutus"><span class="fa fa-sticky-note"></span> Quienes somos</a>
+            <a href="aboutus"><span class="fa fa-users"></span> Quienes somos</a>
           </li>
           <li>
-            <a href="servicios1"><span class="fa fa-sticky-note"></span> Servicios</a>
+            <a href="servicios1"><span class="fa fa-cogs"></span> Servicios</a>
           </li>
           <li>
-            <a class="dropdown-item" href="{{ route('logout') }}"
+            <a class="fa fa-power-off" href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-             {{ __('Logout') }}
+             {{ __('Cerrar sesion') }}
          </a>
 
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

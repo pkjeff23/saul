@@ -16,7 +16,7 @@ class categoriasController extends Controller
     
     public function index(Request $request)
     {
-        $portadas = Categorias::where('state','=',1)->paginate(10);
+        $portadas = Categorias::paginate(10);
         return View('admin.categoria.index')->with('portadas',$portadas);
     }
 
@@ -59,7 +59,7 @@ class categoriasController extends Controller
     public function update(Request $request, Categorias $category)
     {
         if($request->hasFile('img')){
-            Storage::delete(public_path().'/img/', $category->imagen);
+            Storage::delete(public_path().'/img/categorias', $category->imagen);
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/img/categorias', $name);

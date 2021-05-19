@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/ico" href="{{asset('favicon.png')}}">
     <!-- CSS -->
-    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  <a href="" class="whatsapp" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
   <div class="header">
 		<div class="container">
 			<div class="header-grid">
@@ -27,7 +28,7 @@
           <ul>
             <img class="logo-main scale-with-grid mr-lg-5" src="{{ asset('img/principal/logo-ctsaul.png') }}" alt="logo ctsaul">
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:servicioalcliente@ventasctsaul.com">servicioalcliente@ventasctsaul.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (5) 423 3526</li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (57) 301 7545154</li>
 						<li>
               <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-search"></i>
@@ -79,7 +80,7 @@
             <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Calle 13 No 5-37 al lado del <span> antiguo telecom - centro histórico</span>
               <span>santa marta, magdalena</span></li>
             <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a style="color: white;" href="mailto:servicioalcliente@ventasctsaul.com">servicioalcliente@ventasctsaul.com</a></li>
-            <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (5) 423 3526</li>
+            <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (57) 301 7545154</li>
           </ul>
         </div>
         <div class="col-md-4 footer-grid animated wow slideInLeft animated" data-wow-delay=".7s" style="visibility: visible; animation-delay: 0.7s; animation-name: slideInLeft;">

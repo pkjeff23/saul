@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Products;
 use App\Categorias;
+use App\subcategorias;
 use Illuminate\Http\Request;
 use App;
 
@@ -17,7 +18,8 @@ class ProductosController extends Controller
     {
         $clients = Products::where('state','=',1)->paginate(10);
         $categorias = Categorias::all();
-        return View('admin.productos.index')->with('clients',$clients)->with('categorias',$categorias);
+        $subcategorias = subcategorias::all();
+        return View('admin.productos.index')->with('clients',$clients)->with('categorias',$categorias)->with('subcategorias',$subcategorias);
     }
 
     
@@ -38,13 +40,14 @@ class ProductosController extends Controller
         $client->title = $request->title;
         $client->description = $request->description;
         $client->category = $request->category;
+        $client->subcategory = $request->subcategory;
         $client->brand = $request->brand;
         $client->imagen = $name;
         $client->price = $request->price;
         $client->state = $request->state;
         $client->tienda = $request->tienda;
         $client->save();
-        return redirect()->route('clients.index');
+        return redirect()->route('productos.index');
     }
 
     public function show(Clients $clients)

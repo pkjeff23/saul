@@ -38,7 +38,7 @@ class PortadasController extends Controller
         $client->state = $request->state;
         $client->user_id = 1;
         $client->save();
-        return redirect()->route('clients.index');
+        return redirect()->route('portadas.index');
     }
 
     public function show(Clients $clients)
@@ -67,7 +67,7 @@ class PortadasController extends Controller
         $portada->user_id = 1;
         $portada->save();
 
-        return redirect()->route('clients.index');
+        return redirect()->route('portadas.index');
     }
 
     public function destroy(Portadas $portada)

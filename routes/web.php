@@ -10,10 +10,13 @@ Route::resource('/quienesomos', 'QuienesController');
 Route::resource('/servicios', 'ServiciosController');
 
 Route::resource('/clients', 'ClientsController');
+Route::resource('/brands', 'BrandsController');
 
 Route::resource('/category', 'categoriasController');
+Route::resource('/subcategory', 'subcategoriasController');
 Route::resource('/portadas', 'PortadasController');
 Route::resource('/secciones', 'SeccionController');
+Route::resource('/seccionesimg', 'SeccionimgController');
 Route::resource('/productos', 'ProductosController');
 Route::resource('/aboutus', 'Quienes1Controller');
 Route::resource('/servicios1', 'Servicios1Controller');

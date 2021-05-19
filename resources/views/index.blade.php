@@ -114,16 +114,61 @@
   </div>
 
 </section>
+@foreach ($secciones as $seccion)
+  <section class="new-collections col-12 opposite-background">
+    <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">{{ $seccion->title}}</h3>
+        
+    @if ($seccion->type == 0)
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      
+      <div class="carrusel-robots bx-viewport subcategoria">
+        @foreach ($imagenes as $imagen)
+        @if ($seccion->id == $imagen->seccion_id)
+          <div class="thumbnail productoStyle">
+            <a href="https://ventasctsaul.com/Productos/Ver/233" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="imagenR img-responsive" src="{{ asset('img/seccion/'.$imagen->category .'/'.$imagen->imagen) }}"></a>
+            <div class="caption text-center">
+              <i class="fas fa-people-carry"></i>
+              <i class="fas fa-truck"></i>
+            </div> 
+            <div class="caption borderS">
+              <h6 class="text-center productoText">
+                <a href="https://ventasctsaul.com/Productos/Ver/233">{{ $imagen->title}} </a>
+              </h6>
+            </div>
+          </div>
+          @endif
+        @endforeach
+      </div>
+    </div>    
+    @else
+    <div class="row mx-auto justify-content-center align-items-center">
+      @foreach ($imagenes as $imagen)
+      @if ($seccion->id == $imagen->seccion_id)
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="img-category p-3 border">
+          <a href="https://ventasctsaul.com/Productos/Ver/233">
+            <img class="img-responsive" src="{{ asset('img/seccion/'. $imagen->imagen) }}" alt="categoria">
+            <div class="text-block-image">
+              <h4 class="text-upper">{{$imagen->title}}</h4>
+            </div>
+          </a>
+        </div>
+    </div>
+     @endif
+      @endforeach
+    </div>
+    @endif
+  </section>
+      @endforeach
 
  <section style="margin-top: 30px">
     <div class="row" style="margin-right: 0px;margin-left: 0px;">
-        <div class="offset-lg-1 col-lg-4 col-12 tex-center">
-            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-<div class="elfsight-app-79eb309c-cb25-4d23-8ec1-c544852e0815"></div>
-        </div>
-<div class="col-2"></div>
+        
+<div class="offset-5 col-2"></div>
         <div class="col-12 col-lg-4 text-center">
-            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCT-Saul-532296690259418%2F&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="100%" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FCT-Saul-532296690259418%2F&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="100%" height="400" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
         </div>
     </div>
  </section>
@@ -132,7 +177,7 @@
   <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">Nuestros Clientes</h3>
   <div class="carrusel-robots1 mt-3" style="width: 100%; overflow: hidden; position: relative; height: 155px;">
     @foreach ($clients as $client)
-      <div style="float: left; list-style: none; position: relative; width: 200px; margin-right: 50px;"><img class="img-responsive" src="{{ asset('img/'.$client->imagen) }}"  alt="Robot 1"/></div>
+      <div style="float: left; list-style: none; position: relative; width: 200px; margin-right: 50px;"><img class="img-responsive" src="{{ asset('img/clients/'.$client->imagen) }}"  alt="Robot 1"/></div>
     @endforeach
   </div>  
  </section>

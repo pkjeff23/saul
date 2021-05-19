@@ -29,7 +29,7 @@ class ClientsController extends Controller
         if($request->hasFile('img')){
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/', $name);
+            $file->move(public_path().'/img/clients', $name);
         }
         $client = new Clients;
 
@@ -59,7 +59,7 @@ class ClientsController extends Controller
         if($request->hasFile('img')){
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/', $name);
+            $file->move(public_path().'/img/clients', $name);
             $client->imagen = $name;
         }
         

@@ -1,9 +1,5 @@
-
 {{-- EXTEND --}}
 @extends('admin.layout')
-
-{{-- VARS --}}
-
 
 {{-- BUTTONS --}}
 @section('content')
@@ -14,12 +10,13 @@
 @endif
     <div class="row">
         @foreach ($portadas as $portada)
-        <div style="margin-bottom: 40px;margin-top: 40px" class="col-12 col-lg-4">
-            <img src="{{ asset('img/'. $portada->imagen) }}" alt="..." style="width:100%;height:120px">
+        <div style="margin-bottom: 40px;margin-top: 40px" class="col-12 col-lg-6">
+            <img src="{{ asset('img/aboutus/'. $portada->imagen) }}" alt="..." style="width:100%;height:120px">
             <strong>Fecha de creacion:</strong> {{$portada->created_at}} <br>
             <strong>Usuario editor:</strong> admin <br>
             <strong>Fecha de edicion:</strong> {{$portada->updated_at}} <br>
-            <strong>Estado:</strong> {{$portada->state}} <br>
+            <strong>Misión:</strong> {{$portada->mision}} <br>
+            <strong>Visión:</strong> {{$portada->vision}} <br>
             <button class="btn btn-success btn-sm"> <i class="fa fa-eye"></i></button>
             <button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#myModal1{{ $portada->id }}" id="open"><i class="fa fa-trash"></i></button>
             <form method="post" action="{{ route('portadas.destroy', ['portada' => $portada]) }}" id="form1" enctype="multipart/form-data">
@@ -95,4 +92,3 @@
     </div>
     </form>
 @endsection
-

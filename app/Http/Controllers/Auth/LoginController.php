@@ -40,6 +40,6 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'nombre_de_usuario_o_correo_personalizado_aqui';
+        return 'name';
     }
 }

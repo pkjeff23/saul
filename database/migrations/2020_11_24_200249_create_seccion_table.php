@@ -13,8 +13,12 @@ class CreateSeccionTable extends Migration
      */
     public function up()
     {
-        Schema::create('seccion', function (Blueprint $table) {
-            $table->id();
+        Schema::create('seccions', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('type');
+            $table->boolean('state');
+            $table->string('user_id')->nulleable();
             $table->timestamps();
         });
     }

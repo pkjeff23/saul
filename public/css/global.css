@@ -2952,6 +2952,50 @@ ul.phone-mail {
 .ais-RefinementList-labelText { font-size: 18px!important}
 .ais-RefinementList-count { font-size: 14px!important}
 
+.whatsapp {
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:#25d366;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  font-size:30px;
+  z-index:100;
+}
+
+.document {
+  background-color: hsl(0, 0%, 99%);
+  border: 1px solid hsl(0, 0%, 90%);
+  margin-bottom: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    color: hsl(0, 0%, 25%);
+    cursor: default;
+
+}
+
+.pad {
+  padding: 50px;
+}
+
+.document .header {
+  background-color: #184896;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.document .content {
+  padding: 30px 100px 100px 100px;
+}
+
+.whatsapp-icon {
+  margin-top:13px;
+}
+
 .imagenR:hover {
   cursor: pointer;
   transform:scale(0.7);
