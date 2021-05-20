@@ -43,10 +43,9 @@ class SeccionController extends Controller
             return redirect()->route('secciones.index');
         }
     
-        public function destroy(Seccion $seccion)
+        public function destroy(Seccion $seccione)
         {
-    
-            $seccion->delete();
+            $seccione->delete();
     
             return redirect()->route('secciones.index');
         }

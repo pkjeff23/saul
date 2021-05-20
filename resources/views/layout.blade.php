@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <a href="" class="whatsapp" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
+  <a href="https://api.whatsapp.com/send?phone=+573017545154&text=hola,%20estoy%20interesado%20en%20un%20producto%20de%20su%20tienda" class="whatsapp" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
   <div class="header">
 		<div class="container">
 			<div class="header-grid">
@@ -48,8 +48,8 @@
   </div>
 
   <div class="topnav" id="myTopnav">
-    <a href="#home" onclick="window.location='/public'">Inicio</a>
-    <a href="#news" class="active">Ir a ventas</a>
+    <a href="#home" onclick="window.location='/'">Inicio</a>
+    <a href="https://ventasctsaul.com/"  class="active">Ir a ventas</a>
     <a href="#contact"  onclick="window.location='{{ route('catalogo.index') }}'">Ver catálogo</a>
     <a href="#contact" onclick="window.location='{{ route('quienesomos.index') }}'">Quiénes somos</a>
     <a href="#contact" onclick="window.location='{{ route('servicios.index') }}'">Servicios</a>

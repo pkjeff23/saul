@@ -19,7 +19,7 @@
             <strong>Visión:</strong> {{$portada->vision}} <br>
             <button class="btn btn-success btn-sm"> <i class="fa fa-eye"></i></button>
             <button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#myModal1{{ $portada->id }}" id="open"><i class="fa fa-trash"></i></button>
-            <form method="post" action="{{ route('portadas.destroy', ['portada' => $portada]) }}" id="form1" enctype="multipart/form-data">
+            <form method="post" action="{{ route('aboutus.destroy', ['aboutu' => $portada]) }}" id="form1" enctype="multipart/form-data">
                 @csrf
                 @method('DELETE')
               <!-- Modal -->
@@ -35,7 +35,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <h3 class="text-center">¿Esta seguro de eliminar este portada?</h3>
+                <h3 class="text-center">¿Esta seguro de eliminar?</h3>
               </div>
               <div class="modal-footer">
                 <button  class="btn btn-primary" id="ajaxSubmit1">Si</button>

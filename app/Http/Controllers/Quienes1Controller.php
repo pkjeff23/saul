@@ -39,7 +39,7 @@ class Quienes1Controller extends Controller
         $client->mision = $request->mision;
         $client->vision = $request->vision;
         $client->save();
-        return redirect()->route('clients.index');
+        return redirect()->route('aboutus.index');
     }
 
     public function show($id)
@@ -72,11 +72,11 @@ class Quienes1Controller extends Controller
         return redirect()->route('clients.index');
     }
 
-    public function destroy(Portadas $portada)
+    public function destroy(Aboutus $aboutu)
     {
 
-        $portada->delete();
+        $aboutu->delete();
 
-        return redirect()->route('portadas.index');
+        return redirect()->route('aboutus.index');
     }
 }

@@ -52,21 +52,21 @@ class SeccionimgController extends Controller
                 ->with('client', $client);
         }
     
-        public function update(Request $request, Seccionimg $client)
+        public function update(Request $request, Seccionimg $seccionesimg)
         {
             if($request->hasFile('img')){
-                Storage::delete(public_path().'/img/seccion', $client->imagen);
+                Storage::delete(public_path().'/img/seccion', $seccionesimg->imagen);
                 $file = $request->file('img');
                 $name = time().$file->getClientOriginalName();
                 $file->move(public_path().'/img/seccion', $name);
-                $client->imagen = $name;
+                $seccionesimg->imagen = $name;
             }else {
-                $client->imagen = $request->imagen;
+                $seccionesimg->imagen = $request->imagen;
             }
 
-            $client->seccion_id = $request->seccion_id;
-            $client->title = $request->title;
-            $client->save();
+            $seccionesimg->seccion_id = $request->seccion_id;
+            $seccionesimg->title = $request->title;
+            $seccionesimg->save();
     
             return redirect()->route('secciones.index');
         }

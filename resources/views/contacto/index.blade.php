@@ -26,7 +26,7 @@
               <p class="text add-schedule">08:00 a 18:00</p></div></div> 
               <div class="content-row"><div class="icon-frm"><i class="icon fab fa-whatsapp"></i></div> 
               <div class="text-frm"><p class="description">Para servicio al cliente llame al:</p> 
-                <p class="text">(5) 423 3526</p></div> </div> </div></div></div></div></div>
+                <p class="text">(57) 301 7545154</p></div> </div> </div></div></div></div></div>
             <div class="col-12 col-lg-8" style="border-left:1px solid #eee">
               <div class="input-group">
                 <input type="text" class="input-change" placeholder="Nombre" >

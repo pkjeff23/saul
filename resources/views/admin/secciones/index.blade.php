@@ -67,7 +67,8 @@
       <strong>Fecha de edicion:</strong> {{$seccion->updated_at}} <br>
       <strong>Tipo:</strong> {{ (1 == $seccion->type) ? 'Recuadro' : 'carousell' }} <br>
       <strong>Estado:</strong> {{ (1 == $seccion->state) ? 'Activo' : 'Inactivo' }} <br>
-      <button class="btn btn-success btn-sm"type="button"  data-toggle="modal" data-target="#myModal2{{ $seccion->id }}" id="open"> <i class="fa fa-plus"></i></button>
+      
+        <button class="btn btn-success btn-sm"type="button"  data-toggle="modal" data-target="#myModal2{{ $seccion->id }}" id="open"> <i class="fa fa-plus"></i></button>
         <button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#myModal1{{ $seccion->id }}" id="open"><i class="fa fa-trash"></i></button>
       <form method="post" action="{{url('seccionesimg')}}" id="form" enctype="multipart/form-data">
         @csrf
@@ -107,7 +108,7 @@
     </div>
     </div>
     </form>
-      <form method="post" action="{{ route('secciones.destroy', $seccion) }}" id="form1" enctype="multipart/form-data">
+      <form method="post" action="{{ route('secciones.destroy', ['seccione' => $seccion] ) }}" id="form1" enctype="multipart/form-data">
           @csrf
           @method('DELETE')
         <!-- Modal -->

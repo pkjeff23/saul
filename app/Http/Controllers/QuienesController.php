@@ -38,7 +38,7 @@ class QuienesController extends Controller
         $client->state = $request->state;
         $client->user_id = 1;
         $client->save();
-        return redirect()->route('clients.index');
+        return redirect()->route('Quienes.index');
     }
 
     public function show($id)
