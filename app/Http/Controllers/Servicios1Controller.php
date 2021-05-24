@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Products;
+use App\Service;
+use App\ServiceImg;
 use Illuminate\Http\Request;
 use App;
 
@@ -14,7 +16,9 @@ class Servicios1Controller extends Controller
     
     public function index(Request $request)
     {   
-        return View('admin.Servicios.index');
+        $services = Service::all();
+        $imagenes = ServiceImg::all();
+        return View('admin.Servicios.index')->with('services',$services)->with('imagenes',$imagenes);
     }
 
     
@@ -30,13 +34,13 @@ class Servicios1Controller extends Controller
             $name = time().$file->getClientOriginalName();
             $file->move(public_path().'/img/', $name);
         }
-        $client = new Portadas;
+        $client = new Service;
 
         $client->imagen = $name;
-        $client->state = $request->state;
-        $client->user_id = 1;
+        $client->title = "prueba";
+        $client->description = "prueba";
         $client->save();
-        return redirect()->route('clients.index');
+        return redirect()->route('servicios1.index');
     }
 
     public function show($id)
@@ -69,11 +73,11 @@ class Servicios1Controller extends Controller
         return redirect()->route('clients.index');
     }
 
-    public function destroy(Portadas $portada)
+    public function destroy(Service $servicios1)
     {
 
-        $portada->delete();
+        $servicios1->delete();
 
-        return redirect()->route('portadas.index');
+        return redirect()->route('servicios1.index');
     }
 }

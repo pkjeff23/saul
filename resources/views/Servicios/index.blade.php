@@ -7,39 +7,30 @@
 
 {{-- BUTTONS --}}
 @section('content')
+
 @foreach ($portadas as $portada)
 <aside class="responsive-banner">
   <div class="container-envelope">
-      <img class="img-responsive" src="{{ asset('img/aboutus/'. $portada->imagen) }}" alt="portada" width="100%">
+      <img class="img-responsive" src="{{ asset('img/'. $portada->imagen) }}" alt="portada" width="100%">
   </div>
 </aside>
 <hr>
+@endforeach
+
 <div class="container">
-  <div class="row">
-  <div class="col">
-    <div class="document">
-      <div class="header">
-        <h1 class="title">Misión</h1>
-      </div> 
-      <div class="content">
-        {{$portada->mision}}
+<h1 class="new-title">Nuestros servicios</h1>
+    <div class="carrusel-robots2 bx-viewport subcategoria">    
+
+        @foreach ($imagenes as $imagen)
+
+        <div class="card" style="padding: 40px">
+          <h3 class="card-title new-title-card">{{$imagen->title}}</h3>
+          <div class="card-body">
+            <img class="card-img-top img-responsive" src="{{ asset('img/services/'. $imagen->imagen) }}" alt="portada" width="100%">
+            <p class="card-text new-title-text">{{$imagen->description}}</p>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <div class="document">
-          <div class="header">
-            <h1 class="title">Visión</h1>
-          </div> 
-          <div class="content">
-            {{$portada->vision}}
-            </div>
-        </div>
-      </div>
+        @endforeach    
     </div>
 </div>
-  @endforeach    
 @endsection
-

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Products;
+use App\Service;
+use App\ServiceImg;
 use Illuminate\Http\Request;
 use App;
 
@@ -14,7 +15,10 @@ class ServiciosController extends Controller
     
     public function index(Request $request)
     {   
-        return View('Servicios.index');
+        $portadas = Service::all();
+        $imagenes = ServiceImg::all();
+
+        return View('Servicios.index')->with('portadas',$portadas)->with('imagenes',$imagenes);
     }
 
     

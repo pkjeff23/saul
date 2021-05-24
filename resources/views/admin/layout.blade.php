@@ -4,7 +4,7 @@
   	<title>Admin</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="icon" type="image/ico" href="{{asset('favicon.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,11 +55,9 @@
             <a href="servicios1"><span class="fa fa-cogs"></span> Servicios</a>
           </li>
           <li>
-            <a class="fa fa-power-off" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-                          document.getElementById('logout-form').submit();">
-             {{ __('Cerrar sesion') }}
-         </a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();"><span class="fa fa-power-off"></span> Cerrar sesion</a>
+             
 
          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
              @csrf
@@ -80,5 +78,41 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#myTable').DataTable(
+          {
+            language: {
+                  "decimal": "",
+                  "emptyTable": "No hay información",
+                  "info": "",
+                  "infoEmpty": "",
+                  "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                  "infoPostFix": "",
+                  "thousands": ",",
+                  "lengthMenu": "Mostrar _MENU_ Entradas",
+                  "loadingRecords": "Cargando...",
+                  "processing": "Procesando...",
+                  "search": "Buscar:",
+                  "zeroRecords": "Sin resultados encontrados",
+                  "paginate": {
+                      "first": "Primero",
+                      "last": "Ultimo",
+                      "next": "Siguiente",
+                      "previous": "Anterior"
+                  }
+              },
+          }
+
+        );
+
+      } );
+        function submitform(id)
+        {
+          document.getElementById(id).submit();
+        }
+    </script>
   </body>
 </html>

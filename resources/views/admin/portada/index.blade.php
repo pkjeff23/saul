@@ -17,7 +17,43 @@
             <strong>Usuario editor:</strong> admin <br>
             <strong>Fecha de edicion:</strong> {{$portada->updated_at}} <br>
             <strong>Estado:</strong> {{ (1 == $portada->state) ? 'Activo' : 'Inactivo' }} <br>
-            <button class="btn btn-success btn-sm"> <i class="fa fa-eye"></i></button>
+            <button class="btn btn-success btn-sm" data-toggle="modal" data-target="#myModal{{ $portada->id }}" id="open"> <i class="fa fa-pencil"></i></button></td>
+          
+              <form style="display: inline" method="POST" action="{{ route('portadas.update', ['portada' => $portada]) }}"  enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+              <!-- Modal -->
+                  <div class="modal" tabindex="-1" role="dialog" id="myModal{{ $portada->id }}">
+                  <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                  <div class="alert alert-danger" style="display:none"></div>
+                  <div class="modal-header">
+                
+                      <h5 class="modal-title">Actualizar categoria</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                  </div>
+                  <div class="modal-body">
+                      <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="state">Estado:</label>
+                            <select style="border: 1px solid #ced4da;!important" class="form-control" name="state">
+                              <option {{ ( $portada->state == 1) ? 'selected' : '' }} value=1>activo</option>
+                              <option {{ ( $portada->state == 0) ? 'selected' : '' }} value=0>inactivo</option>
+                            </select>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                    <button  class="btn btn-success" id="ajaxSubmit1">Actualizar</button>
+                    </div>
+              </div>
+              </div>
+              </div>
+          </form>
+
             <button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#myModal1{{ $portada->id }}" id="open"><i class="fa fa-trash"></i></button>
             <form method="post" action="{{ route('portadas.destroy', ['portada' => $portada]) }}" id="form1" enctype="multipart/form-data">
                 @csrf

@@ -303,6 +303,36 @@ text-align: center;
   text-transform: uppercase;
 }
 
+.new-title {
+  text-align: center;
+  color:#184896;
+  margin: 0;
+  position: relative;
+  font-size: 2.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.new-title-card {
+  text-align: center;
+  color:#184896;
+  margin: 0;
+  position: relative;
+  font-size: 2.0em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.new-title-text {
+  text-align: center;
+  margin: 0;
+  position: relative;
+  font-size: 1.6em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .new-collections h3:before,.new-collections h3:after,h3.title:before,h3.title:after,.mail h3:before,.mail h3:after,.single-related-products h3:before,.single-related-products h3:after,.login h3:before,.login h3:after,.register h3:before,.register h3:after{
   position: absolute;
   top: 50%;

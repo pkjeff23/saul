@@ -10,7 +10,7 @@
 <div class="row" style="margin-top: 40px;margin-right: 0px;margin-left: 0px;">
     <div class="col-md-12">
       <div class="panel panel-default">
-        <div class="panel-heading text-upper" style="font-size:18px;background-color: #003c94;color: white;">inicio/{{$Products->category}}/{{$Products->title}}</div>
+        <div class="panel-heading text-upper" style="font-size:18px;background-color: #003c94;color: white;"><a onclick="window.location='{{ route('catalogo.index') }}'">inicio </a>/<a onclick="myFunction1('{{$Products->category}}')">{{$Products->category}} </a>/{{$Products->title}}</div>
             <div class="panel-body">
                 <div class="row" style="margin-right: 0px;margin-left: 0px;">
                     <div class="col-md-6">
@@ -59,5 +59,10 @@
     </div>
   </div>
 </div>
+<script type = "text/javascript" language = "javascript">
+    function myFunction1(p1) {
+      window.location = "/catalogo?category="+ p1;
+    }
+  </script>
 @endsection
 

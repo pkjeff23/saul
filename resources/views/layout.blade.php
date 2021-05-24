@@ -49,7 +49,7 @@
 
   <div class="topnav" id="myTopnav">
     <a href="#home" onclick="window.location='/'">Inicio</a>
-    <a href="https://ventasctsaul.com/"  class="active">Ir a ventas</a>
+    <a href="https://ventasctsaul.com/" target="_blank" class="active">Ir a ventas</a>
     <a href="#contact"  onclick="window.location='{{ route('catalogo.index') }}'">Ver catálogo</a>
     <a href="#contact" onclick="window.location='{{ route('quienesomos.index') }}'">Quiénes somos</a>
     <a href="#contact" onclick="window.location='{{ route('servicios.index') }}'">Servicios</a>
@@ -179,7 +179,43 @@
 
   ]
     });
+    $('.carrusel-robots2').slick({
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 1800,
+      arrows: true,
+      dots: false,
+      infinite: true,
+      speed: 500,
+      autoplay: true,
+      responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 5,
+                slidesToScroll: 5,
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+            }
+        }
+
+  ]
+    });
   });
+
 
   function myFunction() {
     var x = document.getElementById("myTopnav");
@@ -189,6 +225,7 @@
       x.className = "topnav";
     }
   }
+
     $( "#inputsearch" ).change(function() {
       let a = $("#inputsearch" ).val();
       window.location = "catalogo?q="+ a;

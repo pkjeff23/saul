@@ -20,6 +20,7 @@ Route::resource('/seccionesimg', 'SeccionimgController')->middleware('auth');
 Route::resource('/productos', 'ProductosController')->middleware('auth');
 Route::resource('/aboutus', 'Quienes1Controller')->middleware('auth');
 Route::resource('/servicios1', 'Servicios1Controller')->middleware('auth');
+Route::resource('/serviciosimg', 'ServicesimgController')->middleware('auth');
 
 Route::get('/login', function () {
     return view('auth/login');

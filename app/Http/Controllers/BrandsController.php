@@ -54,7 +54,7 @@ class BrandsController extends Controller
             ->with('client', $client);
     }
 
-    public function update(Request $request, Clients $client)
+    public function update(Request $request, Brands $brand)
     {
         if($request->hasFile('img')){
             $file = $request->file('img');
@@ -63,16 +63,16 @@ class BrandsController extends Controller
             $client->imagen = $name;
         }
         
-        $client->name = $request->name;
-        $client->state = $request->state;
-        $client->save();
-        return redirect()->route('brand.index');
+        $brand->name = $request->name;
+        $brand->state = $request->state;
+        $brand->save();
+        return redirect()->route('brands.index');
     }
 
-    public function destroy(Clients $client)
+    public function destroy(Brands $brand)
     {
-        $client->delete();
+        $brand->delete();
 
-        return redirect()->route('brand.index');
+        return redirect()->route('brands.index');
     }
 }
