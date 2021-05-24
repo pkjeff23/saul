@@ -7,7 +7,6 @@
 <table style="margin-top: 50px;" id="myTable" class="table">
   <thead>
     <tr>
-      <th scope="col">Imagen</th>
       <th scope="col">Nombre</th>
       <th scope="col">Fecha creacion</th>
       <th scope="col">Fecha edicion</th>
@@ -54,6 +53,7 @@
                   <div class="form-group col-md-8">
                     <label for="title">Nombre:</label>
                     <input type="text" class="form-control" name="title" id="title" value={{ $portada->title }}>
+                    <input type="hidden" class="form-control" name="category_id" id="category_id" value={{ $portada->category_id }}>
                   </div>
               </div>
               <div class="row">
