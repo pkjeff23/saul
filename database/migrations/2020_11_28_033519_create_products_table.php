@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('price');
             $table->boolean('state');
             $table->boolean('tienda');
+            $table->string('id_ventas');
             $table->timestamps();
         });
     }

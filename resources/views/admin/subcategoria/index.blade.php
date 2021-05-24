@@ -3,16 +3,18 @@
 
 @section('content')
 <h2>Gestion de Subcategorias</h2>
-<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="open"><i class="fa fa-plus"></i> Crear</button>
-<table style="margin-top: 50px;" id="myTable" class="table">
+<button style="margin-bottom: 30px;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="open"><i class="fa fa-plus"></i> Crear</button>
+<table id="myTable" class="table table-striped table-bordered" style="width:100%;">
+<caption>SubCategorias</caption>
   <thead>
     <tr>
-      <th scope="col">Imagen</th>
       <th scope="col">Nombre</th>
       <th scope="col">Fecha creacion</th>
       <th scope="col">Fecha edicion</th>
       <th scope="col">Usuario</th>
       <th scope="col">Estado</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -24,9 +26,6 @@
           <td>Admin</td>
           <td>{{ (1 == $portada->state) ? 'Activo' : 'Inactivo' }}</td>
           <td><button class="btn btn-success btn-sm" type="button"  data-toggle="modal" data-target="#myModal{{ $portada->id }}" id="open"> <i class="fa fa-pencil"></i></button></td>
-          <form method="post" action="{{ route('subcategory.update', ['subcategory' => $portada]) }}" id="form1" enctype="multipart/form-data">
-            @csrf
-            @method('PUT')
           <!-- Modal -->
           <div class="modal" tabindex="-1" role="dialog" id="myModal{{ $portada->id }}">
           <div class="modal-dialog" role="document">
@@ -43,23 +42,27 @@
             <div class="row">
               <div class="form-group offset-2 col-md-10">
               </div>
+          <form method="post" action="{{ route('subcategory.update', ['subcategory' => $portada]) }}" id="form_{{ $portada->id }}" enctype="multipart/form-data">
+            @csrf
+            @method('PUT')
             </div>
               <div class="row">
                   <div class="form-group col-md-8">
                     <label for="img">imagen:</label>
-                    <input type="file" name="img" id="img">
+                    <input class="form-control" type="file" name="img" id="img">
                   </div>
                 </div>
               <div class="row">
                   <div class="form-group col-md-8">
                     <label for="title">Nombre:</label>
-                    <input type="text" class="form-control" name="title" id="title" value={{ $portada->title }}>
+                    <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="title" id="title" value="{{ $portada->title }}">
+                    <input type="hidden" class="form-control" name="category_id" id="category_id" value={{ $portada->category_id }}>
                   </div>
               </div>
               <div class="row">
                  <div class="form-group col-md-8">
                     <label for="state">Estado:</label>
-                    <select class="form-control" name="state" id="state">
+                    <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state">
                       <option {{ ( $portada->state == 1) ? 'selected' : '' }} value=1>activo</option>
                       <option {{ ( $portada->state == 0) ? 'selected' : '' }} value=0>inactivo</option>
                     </select>
@@ -68,14 +71,14 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
-            <button  class="btn btn-success" id="ajaxSubmit1">Actualizar</button>
+            <button onclick="submitform('form_{{ $portada->id }}')" class="btn btn-success" id="ajaxSubmit1">Actualizar</button>
             </div>
           </div>
           </div>
           </div>
           </form>
           <td><button class="btn btn-danger btn-sm" type="button"  data-toggle="modal" data-target="#myModal1{{ $portada->id }}" id="open"><i class="fa fa-trash"></i></button></td>
-          <form method="post" action="{{ route('subcategory.destroy', ['subcategory' => $portada]) }}" id="form1" enctype="multipart/form-data">
+          <form method="post" action="{{ route('subcategory.destroy', ['subcategory' => $portada]) }}" id="form-{{ $portada->id }}" enctype="multipart/form-data">
             @csrf
             @method('DELETE')
           <!-- Modal -->
@@ -91,10 +94,10 @@
             </button>
           </div>
           <div class="modal-body">
-            <h3 class="text-center">¿Esta seguro de eliminar este portadae coporativo?</h3>
+            <h3 class="text-center">¿Esta seguro de eliminar esta subcategoria?</h3>
           </div>
           <div class="modal-footer">
-            <button  class="btn btn-primary" id="ajaxSubmit1">Si</button>
+            <button onclick="submitform('form-{{ $portada->id }}')" class="btn btn-primary" id="ajaxSubmit1">Si</button>
             <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
             </div>
           </div>
@@ -105,9 +108,8 @@
         @endforeach
       </tbody>
     </table>
-    {{ $portadas->links() }}
 
-    <form method="post" action="subcategory" id="form" enctype="multipart/form-data">
+    <form method="post" action="subcategory" enctype="multipart/form-data">
         @csrf
     <!-- Modal -->
     <div class="modal" tabindex="-1" role="dialog" id="myModal">
@@ -136,7 +138,7 @@
           <div class="row">
             <div class="form-group col-md-8">
               <label for="img">Nombre Subcategoria:</label>
-              <input style="border: 1px solid #ced4da;!important" type="text" name="title" id="title">
+              <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="title" id="title">
             </div>
           </div>
           <div class="row">
@@ -151,7 +153,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
-        <button  class="btn btn-success" id="ajaxSubmit">Crear</button>
+        <button  class="btn btn-success">Crear</button>
         </div>
     </div>
     </div>

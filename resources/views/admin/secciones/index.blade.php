@@ -1,4 +1,3 @@
-
 {{-- EXTEND --}}
 @extends('admin.layout')
 

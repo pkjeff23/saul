@@ -52,22 +52,21 @@ class subcategoriasController extends Controller
             ->with('client', $client);
     }
 
-    public function update(Request $request, Subcategorias $category)
+    public function update(Request $request, Subcategorias $subcategory)
     {
+        $subcategory->category_id = $request->category_id;
+        $subcategory->title = $request->title;
+        $subcategory->state = $request->state;
+        $subcategory->save();
 
-        $category->title = $request->title;
-        $category->state = $request->state;
-        $category->user_id = 1;
-        $category->save();
-
-        return redirect()->route('Subcategory.index');
+        return redirect()->route('subcategory.index');
     }
 
-    public function destroy(Subcategorias $category)
+    public function destroy(Subcategorias $subcategory)
     {
-        Storage::delete(public_path().'/img/', $category->imagen);
-        $category->delete();
+        Storage::delete(public_path().'/img/', $subcategory->imagen);
+        $subcategory->delete();
 
-        return redirect()->route('category.index');
+        return redirect()->route('subcategory.index');
     }
 }

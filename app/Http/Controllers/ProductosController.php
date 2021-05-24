@@ -16,7 +16,7 @@ class ProductosController extends Controller
     
     public function index(Request $request)
     {
-        $clients = Products::where('state','=',1)->paginate(10);
+        $clients = Products::paginate(10);
         $categorias = Categorias::all();
         $subcategorias = subcategorias::all();
         return View('admin.productos.index')->with('clients',$clients)->with('categorias',$categorias)->with('subcategorias',$subcategorias);
@@ -46,6 +46,7 @@ class ProductosController extends Controller
         $client->price = $request->price;
         $client->state = $request->state;
         $client->tienda = $request->tienda;
+        $Producto->id_ventas = $request->id_ventas;
         $client->save();
         return redirect()->route('productos.index');
     }
@@ -63,24 +64,28 @@ class ProductosController extends Controller
             ->with('client', $client);
     }
 
-    public function update(Request $request, Clients $client)
+    public function update(Request $request, Products $Producto)
     {
-        $request->user()->authorizeRoles(['user', 'admin']);
+        
+        $Producto->title = $request->title;
+        $Producto->description = $request->description;
+        $Producto->category = $request->category;
+        $Producto->subcategory = $request->subcategory;
+        $Producto->brand = $request->brand;
+        $Producto->price = $request->price;
+        $Producto->state = $request->state;
+        $Producto->tienda = $request->tienda;
+        $Producto->id_ventas = $request->id_ventas;
+        $Producto->save();
 
-        $client->name = $request->name;
-        $client->dni = $request->dni;
-        $client->email = $request->email;
-        $client->address = $request->address;
-        $client->save();
-
-        return redirect()->route('clients.index');
+        return redirect()->route('productos.index');
     }
 
-    public function destroy(Portadas $portada)
+    public function destroy(Products $Producto)
     {
 
-        $portada->delete();
+        $Producto->delete();
 
-        return redirect()->route('portadas.index');
+        return redirect()->route('productos.index');
     }
 }

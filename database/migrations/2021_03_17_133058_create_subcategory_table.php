@@ -16,7 +16,7 @@ class CreateSubcategoryTable extends Migration
         Schema::create('subcategory', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('category');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
             $table->string('title');
             $table->boolean('state');
             $table->timestamps();

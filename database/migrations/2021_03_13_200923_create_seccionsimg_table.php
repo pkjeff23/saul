@@ -16,7 +16,7 @@ class CreateSeccionsimgTable extends Migration
         Schema::create('seccionsimgs', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('seccion_id')->unsigned();
-            $table->foreign('seccion_id')->references('id')->on('seccions')->onDelete('cascade');;
+            $table->foreign('seccion_id')->references('id')->on('seccions')->onDelete('cascade');
             $table->string('title');
             $table->string('imagen');
             $table->timestamps();
