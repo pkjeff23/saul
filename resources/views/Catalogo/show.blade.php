@@ -61,6 +61,7 @@
 </div>
 <script type = "text/javascript" language = "javascript">
     function myFunction1(p1) {
+      
       window.location = "/catalogo?category="+ p1;
     }
   </script>
