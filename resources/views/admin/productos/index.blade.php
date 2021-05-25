@@ -261,7 +261,7 @@
      <div class="row">
           <div class="form-group col-md-8">
             <label for="id_ventas">Id en ventas saul:</label>
-            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="id_ventas" id="id_ventas" value={{ $client->id_ventas }}>
+            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="id_ventas" id="id_ventas">
           </div>
       </div>
   </div>

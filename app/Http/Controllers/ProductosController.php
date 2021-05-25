@@ -46,7 +46,7 @@ class ProductosController extends Controller
         $client->price = $request->price;
         $client->state = $request->state;
         $client->tienda = $request->tienda;
-        $Producto->id_ventas = $request->id_ventas;
+        $client->id_ventas = $request->id_ventas;
         $client->save();
         return redirect()->route('productos.index');
     }
