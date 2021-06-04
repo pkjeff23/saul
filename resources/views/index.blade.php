@@ -54,7 +54,7 @@
       @foreach ($categorias as $categoria)
       <div class="col-6 col-md-4 col-lg-3">
         <div class="img-category p-3 border">
-          <a href="https://ventasctsaul.com/Productos/Ver/233">
+          <a href="http://127.0.0.1:8000/catalogo?category={{$categoria->title}}">
             <img class="img-responsive" src="{{ asset('img/categorias/'. $categoria->imagen) }}" alt="categoria">
             <div class="text-block-image">
               <h4 class="text-upper">{{$categoria->title}}</h4>

@@ -155,7 +155,7 @@
       <div class="alert alert-danger" style="display:none"></div>
       <div class="modal-header">
         
-        <h5 class="modal-title">Crear service</h5>
+        <h5 class="modal-title">Crear portada </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -165,7 +165,7 @@
             <div class="form-group col-md-8">
               <label for="img">portada:</label>
               <input type="file" name="img" id="img">
-              <label for="prueba" style="color: red;">El tamaño minimo de la imagen debe ser de ? x ? px</label>
+              <label for="prueba" style="color: red;">El tamaño minimo de la imagen debe ser de 2000 x 2000 px</label>
             </div>
           </div>
       </div>

@@ -190,19 +190,19 @@
     <div class="row">
       <div class="form-group col-md-8">
         <label for="title">Nombre:</label>
-        <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="title" id="title">
+        <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="title" id="title" required>
       </div>
   </div>
   <div class="row">
     <div class="form-group col-md-8">
       <label for="description">Description:</label>
-      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="description" id="description">
+      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="description" id="description" required>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-8">
       <label for="category">Categoria:</label>
-      <select style="border: 1px solid #ced4da;!important" class="form-control" name="category">
+      <select style="border: 1px solid #ced4da;!important" class="form-control" name="category" required>
         <option value=''>elija categoria</option>         
         @foreach ($categorias as $categoria)
           <option value='{{$categoria->title}}'>{{$categoria->title}}</option>         
@@ -213,7 +213,7 @@
   <div class="row">
     <div class="form-group col-md-8">
       <label for="subcategory">Subcategoria:</label>
-      <select style="border: 1px solid #ced4da;!important" class="form-control" name="subcategory">
+      <select style="border: 1px solid #ced4da;!important" class="form-control" name="subcategory" required>
         <option value=''>elija subcategoria</option>         
         @foreach ($subcategorias as $subcategoria)
           <option value='{{$subcategoria->title}}'>{{$subcategoria->title}}</option>         
@@ -224,26 +224,26 @@
   <div class="row">
     <div class="form-group col-md-8">
       <label for="brand">Marca:</label>
-      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="brand" id="brand">
+      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="brand" id="brand" required>
     </div>
   </div>
     <div class="row">
         <div class="form-group col-md-8">
           <label for="img">imagen:</label>
-          <input style="border: 1px solid #ced4da;!important" type="file" name="img" id="img">
+          <input style="border: 1px solid #ced4da;!important" type="file" name="img" id="img" required>
           <label for="prueba" style="color: red;">El tamaño minimo de la imagen debe ser de 300 x 300 px</label>
         </div>
       </div>
       <div class="row">
           <div class="form-group col-md-8">
             <label for="price">Precio:</label>
-            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="price" id="price">
+            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="price" id="price" required>
           </div>
       </div>
       <div class="row">
          <div class="form-group col-md-8">
             <label for="state">Estado:</label>
-            <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state">
+            <select style="border: 1px solid #ced4da;!important" class="form-control" name="state" id="state" required>
               <option value=1>activo</option>
               <option value=0>inactivo</option>
             </select>
@@ -252,7 +252,7 @@
       <div class="row">
         <div class="form-group col-md-8">
            <label for="tienda">Disponible en tienda:</label>
-           <select style="border: 1px solid #ced4da;!important" class="form-control" name="tienda" id="tienda">
+           <select style="border: 1px solid #ced4da;!important" class="form-control" name="tienda" id="tienda" required>
              <option value=1>Si</option>
              <option value=0>No</option>
            </select>
@@ -261,7 +261,7 @@
      <div class="row">
           <div class="form-group col-md-8">
             <label for="id_ventas">Id en ventas saul:</label>
-            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="id_ventas" id="id_ventas">
+            <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="id_ventas" id="id_ventas" required>
           </div>
       </div>
   </div>

@@ -13,7 +13,7 @@
       <div class="panel-heading" style="background-color: #003c94;color: white;">CATEGORIAS</div>
       <div class="panel-body">
         @foreach ($categorias as $categoria)
-        <h4 class="text-upper" onclick="myFunction1('{{$categoria->title}}')"><span class="fa fa-check" style="color:#4CAF50"></span> {{$categoria->title}}</h4>
+        <h4 class="text-upper bt-enlace1" onclick="myFunction1('{{$categoria->title}}')"><span class="fa fa-check" style="color:#4CAF50"></span> {{$categoria->title}}</h4>
         @endforeach
       </div>
     </div>

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <a href="https://api.whatsapp.com/send?phone=+573017545154&text=hola,%20estoy%20interesado%20en%20un%20producto%20de%20su%20tienda" class="whatsapp" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
+  <a  href="https://api.whatsapp.com/send?phone=+573017545154&text=hola,%20estoy%20interesado%20en%20un%20producto%20de%20su%20tienda" class="whatsapp bt-enlace2" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
   <div class="header">
 		<div class="container">
 			<div class="header-grid">
@@ -28,7 +28,7 @@
           <ul>
             <img class="logo-main scale-with-grid mr-lg-5" src="{{ asset('img/principal/logo-ctsaul.png') }}" alt="logo ctsaul">
 						<li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a href="mailto:servicioalcliente@ventasctsaul.com">servicioalcliente@ventasctsaul.com</a></li>
-						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (57) 301 7545154</li>
+						<li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (57) 3006241757</li>
 						<li>
               <div class="inner-addon right-addon">
                 <i class="glyphicon glyphicon-search"></i>
@@ -80,7 +80,7 @@
             <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-map-marker" aria-hidden="true"></i>Calle 13 No 5-37 al lado del <span> antiguo telecom - centro histórico</span>
               <span>santa marta, magdalena</span></li>
             <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a style="color: white;" href="mailto:servicioalcliente@ventasctsaul.com">servicioalcliente@ventasctsaul.com</a></li>
-            <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (57) 301 7545154</li>
+            <li style="color: white;"><i style="color: white;" class="glyphicon glyphicon-earphone" aria-hidden="true"></i> (57) 3006241757</li>
           </ul>
         </div>
         <div class="col-md-4 footer-grid animated wow slideInLeft animated" data-wow-delay=".7s" style="visibility: visible; animation-delay: 0.7s; animation-name: slideInLeft;">

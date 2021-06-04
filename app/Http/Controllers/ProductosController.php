@@ -7,7 +7,7 @@ use App\Categorias;
 use App\subcategorias;
 use Illuminate\Http\Request;
 use App;
-
+use Illuminate\Support\Facades\Storage;
 class ProductosController extends Controller
 {
     public function __construct()
@@ -66,7 +66,20 @@ class ProductosController extends Controller
 
     public function update(Request $request, Products $Producto)
     {
-        
+        if($request->hasFile('img')){
+            Storage::delete(public_path().'/img/productos/'.$request->category, $request->imagen);
+            $file = $request->file('img');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/img/productos/'.$request->category, $name);
+            $Producto->imagen = $name;
+        }else {
+            if($Producto->category != $request->category){
+                $org_image=public_path().'/img/productos/'.$Producto->category. '/'. $Producto->imagen;
+                $destination=public_path().'/img/productos/'.$request->category;
+            }
+        }
+
+
         $Producto->title = $request->title;
         $Producto->description = $request->description;
         $Producto->category = $request->category;
