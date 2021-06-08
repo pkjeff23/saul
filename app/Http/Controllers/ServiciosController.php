@@ -36,9 +36,7 @@ class ServiciosController extends Controller
         }
         $client = new Portadas;
 
-        $client->imagen = $name;
-        $client->state = $request->state;
-        $client->user_id = 1;
+        $client->portada = $name;
         $client->save();
         return redirect()->route('clients.index');
     }

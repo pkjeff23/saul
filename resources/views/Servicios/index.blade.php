@@ -11,7 +11,7 @@
 @foreach ($portadas as $portada)
 <aside class="responsive-banner">
   <div class="container-envelope">
-      <img class="img-responsive" src="{{ asset('img/'. $portada->imagen) }}" alt="portada" width="100%">
+      <img class="img-responsive" src="{{ asset('img/services'. $portada->imagen) }}" alt="portada" width="100%">
   </div>
 </aside>
 <hr>

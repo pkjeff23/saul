@@ -6,33 +6,23 @@
 
 {{-- BUTTONS --}}
 @section('content')
-<div class="container--head img-portada-height">
-    <div id="carousel-generic" class="carousel slide" data-bs-ride="carousel">
-
-      <ol class="carousel-indicators">
-        @foreach ($portadas as $key=> $portada)
-        <li data-target="#carousel-generic" data-slide-to="{{$key}}" class="{{ ( $key == 0) ? 'active' : '' }}"></li>
-        @endforeach
-      </ol>
-
-      <div class="carousel-inner img-portada-height">
-        @foreach ($portadas as $key => $portada)
-        <div class="carousel-item img-portada-height {{ ( $key == 0) ? 'active' : '' }}">
-          <img class="img-responsive d-block w-100 img-portada" src="{{ asset('img/portadas/'. $portada->imagen) }}" alt="portada">
-        </div>
-        @endforeach
-      </div>
-    
-      <!-- Controls -->
-      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
+  <div id="carouselExampleControls" class="carousel slide img-portada-height" data-ride="carousel">
+  <div class="carousel-inner img-portada-height">
+  @foreach ($portadas as $key=> $portada)
+  <div class="img-portada-height item  {{ ( $key == 0) ? 'active' : '' }}">
+      <img class="img-responsive d-block w-100 img-portada" src="{{ asset('img/portadas/'. $portada->imagen) }}" alt="portada">
   </div>
-    
+  @endforeach
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
   <div class="wrap mcb-wrap one col-centrar column-margin-0px valign-top clearfix" style="background-color:#00b600">
     <div class="mcb-wrap-inner">
       <div class="column-ventas">
@@ -72,7 +62,7 @@
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="carrusel-robots bx-viewport subcategoria">    
         @foreach ($productsDes as $productDes)
-        <div class="thumbnail productoStyle">
+        <div class="thumbnail productoStyle img-category">
         <a href="https://ventasctsaul.com/Productos/Ver/233" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="imagenR img-responsive" src="{{ asset('img/productos/'.$productDes->category .'/'.$productDes->imagen) }}" alt="{{$productDes->title}}"></a>
             <div class="caption text-center">
                 <i class="fas fa-people-carry"></i>

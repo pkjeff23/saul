@@ -25,7 +25,7 @@ class CatalogoController extends Controller
             $portadas = Products::where('title', 'like', '%'.$request->q.'%')->paginate(15);
         }
         $categorias = Categorias::all();
-            return View('catalogo.index')->with('portadas',$portadas)->with('categorias',$categorias);
+            return View('Catalogo.index')->with('portadas',$portadas)->with('categorias',$categorias);
     }
 
     

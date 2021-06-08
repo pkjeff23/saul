@@ -32,13 +32,11 @@ class Servicios1Controller extends Controller
         if($request->hasFile('img')){
             $file = $request->file('img');
             $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/img/', $name);
+            $file->move(public_path().'/img/services', $name);
         }
         $client = new Service;
 
-        $client->imagen = $name;
-        $client->title = "prueba";
-        $client->description = "prueba";
+        $client->portada = $name;
         $client->save();
         return redirect()->route('servicios1.index');
     }

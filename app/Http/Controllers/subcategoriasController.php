@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Portadas;
-use App\SubCategorias;
+use App\Subcategorias;
 use App\Categorias;
 use Illuminate\Http\Request;
 use App;

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Products;
 use App\Categorias;
-use App\subcategorias;
+use App\Subcategorias;
+use App\Brands;
 use Illuminate\Http\Request;
 use App;
 use Illuminate\Support\Facades\Storage;
@@ -18,8 +19,9 @@ class ProductosController extends Controller
     {
         $clients = Products::paginate(10);
         $categorias = Categorias::all();
-        $subcategorias = subcategorias::all();
-        return View('admin.productos.index')->with('clients',$clients)->with('categorias',$categorias)->with('subcategorias',$subcategorias);
+        $subcategorias = Subcategorias::all();
+        $brands = Brands::all();
+        return View('admin.productos.index')->with('clients',$clients)->with('categorias',$categorias)->with('subcategorias',$subcategorias)->with('brands',$brands);
     }
 
     
@@ -73,16 +75,12 @@ class ProductosController extends Controller
             $file->move(public_path().'/img/productos/'.$request->category, $name);
             $Producto->imagen = $name;
         }else {
-            if($Producto->category != $request->category){
-                $org_image=public_path().'/img/productos/'.$Producto->category. '/'. $Producto->imagen;
-                $destination=public_path().'/img/productos/'.$request->category;
-            }
+            
         }
 
 
         $Producto->title = $request->title;
         $Producto->description = $request->description;
-        $Producto->category = $request->category;
         $Producto->subcategory = $request->subcategory;
         $Producto->brand = $request->brand;
         $Producto->price = $request->price;

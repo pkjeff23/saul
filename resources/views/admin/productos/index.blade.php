@@ -90,8 +90,13 @@
             </div>
             <div class="row">
               <div class="form-group col-md-8">
-                <label for="brand">Marca:</label>
-                <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="brand" id="brand" value={{ $client->brand }}>
+                <label for="subcategory">Marca:</label>
+                <select style="border: 1px solid #ced4da;!important" class="form-control" name="brand" required>
+                  <option value=''>elija una marca</option>         
+                  @foreach ($brands as $brand)
+                  <option {{ ( $client->brand == $brand->name) ? 'selected' : '' }} value='{{$brand->name}}'>{{$brand->name}}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
               <div class="row">
@@ -223,8 +228,13 @@
   </div>
   <div class="row">
     <div class="form-group col-md-8">
-      <label for="brand">Marca:</label>
-      <input style="border: 1px solid #ced4da;!important" type="text" class="form-control" name="brand" id="brand" required>
+      <label for="subcategory">Marca:</label>
+      <select style="border: 1px solid #ced4da;!important" class="form-control" name="brand" required>
+        <option value=''>elija una marca</option>         
+        @foreach ($brands as $brand)
+          <option value='{{$brand->name}}'>{{$brand->name}}</option>         
+        @endforeach
+      </select>
     </div>
   </div>
     <div class="row">
