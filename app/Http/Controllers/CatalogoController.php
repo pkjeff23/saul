@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Products;
 use App\Categorias;
+use App\Subcategorias;
 use Illuminate\Http\Request;
 use App;
 
@@ -25,7 +26,8 @@ class CatalogoController extends Controller
             $portadas = Products::where('title', 'like', '%'.$request->q.'%')->paginate(15);
         }
         $categorias = Categorias::all();
-            return View('Catalogo.index')->with('portadas',$portadas)->with('categorias',$categorias);
+        $subcategorias = Subcategorias::all();
+            return View('Catalogo.index')->with('portadas',$portadas)->with('categorias',$categorias)->with('subcategorias',$subcategorias);
     }
 
     
@@ -54,7 +56,7 @@ class CatalogoController extends Controller
     {
         $a = Products::find($id);
         $productCat = Products::where('category', '=', $a->category)->paginate(15);
-        return view('catalogo.show')
+        return view('Catalogo.show')
             ->with('Products', $a)        
             ->with('productsCat', $productCat);        
     }

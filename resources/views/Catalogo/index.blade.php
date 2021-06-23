@@ -14,6 +14,11 @@
       <div class="panel-body">
         @foreach ($categorias as $categoria)
         <h4 class="text-upper bt-enlace1" onclick="myFunction1('{{$categoria->title}}')"><span class="fa fa-check" style="color:#4CAF50"></span> {{$categoria->title}}</h4>
+            @foreach ($subcategorias as $subcategoria)
+            @if ($categoria->id == $subcategoria->category_id)
+              <h6 class="text-upper bt-enlace1" onclick="myFunction1('{{$subcategoria->title}}')"><span class="fa fa-check" style="color:#4CAF50; margin-left: 15px"></span> {{$subcategoria->title}}</h6>
+            @endif
+            @endforeach
         @endforeach
       </div>
     </div>
