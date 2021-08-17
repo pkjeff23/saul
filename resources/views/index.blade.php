@@ -63,14 +63,10 @@
         <div class="carrusel-robots bx-viewport subcategoria">    
         @foreach ($productsDes as $productDes)
         <div class="thumbnail productoStyle img-category">
-        <a href="https://ventasctsaul.com/Productos/Ver/233" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="imagenR img-responsive" src="{{ asset('img/productos/'.$productDes->category .'/'.$productDes->imagen) }}" alt="{{$productDes->title}}"></a>
-            <div class="caption text-center">
-                <i class="fas fa-people-carry"></i>
-                <i class="fas fa-truck"></i>
-              </div>
+        <a href="https://ventasctsaul.com/Productos/Ver/"{{ $productDes->id_ventas}} data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="imagenR img-responsive" src="{{ asset('img/productos/'.$productDes->category .'/'.$productDes->imagen) }}" alt="{{$productDes->title}}"></a>
               <div class="caption borderS">
                 <h6 class="text-center productoText">
-                    <a href="https://ventasctsaul.com/Productos/Ver/233">{{ $productDes->title}} </a>
+                    <a href="https://ventasctsaul.com/Productos/Ver/"{{ $productDes->id_ventas}}>{{ $productDes->title}} </a>
                 </h6>
               </div>
         </div>
@@ -88,14 +84,12 @@
     <div class="carrusel-robots bx-viewport subcategoria">
       @foreach ($productsNew as $productNew)
       <div class="thumbnail productoStyle">
-        <a href="https://ventasctsaul.com/Productos/Ver/233" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="imagenR img-responsive" src="{{ asset('img/productos/'.$productNew->category .'/'.$productNew->imagen) }}"></a>
+        <a href="https://ventasctsaul.com/Productos/Ver/{{ $productNew->id_ventas}}" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Lector de huella digital "><img class="imagenR img-responsive" src="{{ asset('img/productos/'.$productNew->category .'/'.$productNew->imagen) }}"></a>
         <div class="caption text-center">
-            <i class="fas fa-people-carry"></i>
-            <i class="fas fa-truck"></i>
           </div> 
             <div class="caption borderS">
                 <h6 class="text-center productoText">
-                    <a href="https://ventasctsaul.com/Productos/Ver/233">{{ $productNew->title}} </a>
+                    <a href="https://ventasctsaul.com/Productos/Ver/{{ $productNew->id_ventas}}">{{ $productNew->title}} </a>
                 </h6>
               </div>
         </div>
@@ -163,11 +157,28 @@
     </div>
  </section>
 
+ <section class="new-collections opposite-background col-12">
+    <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">MARCAS</h3>
+    
+    <div class="row mx-auto justify-content-center align-items-center">
+      @foreach ($brands as $brand)
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="img-category p-3 border">
+            <img class="img-responsive" src="{{ asset('img/marcas/'. $brand->imagen) }}" alt="marca">
+            <div class="text-block-image">
+              <h4 class="text-upper">{{$brand->name}}</h4>
+            </div>
+        </div>
+    </div>
+      @endforeach
+    </div>
+  </section>
+
  <section class="new-collections brands col-12 opposite-background">
   <h3 class="animated wow zoomIn animated title-section" data-wow-delay=".5s">Nuestros Clientes</h3>
   <div class="carrusel-robots1 mt-3" style="width: 100%; overflow: hidden; position: relative; height: 155px;">
     @foreach ($clients as $client)
-      <div style="float: left; list-style: none; position: relative; width: 200px; margin-right: 50px;"><img class="img-responsive" src="{{ asset('img/clients/'.$client->imagen) }}"  alt="Robot 1"/></div>
+      <div style="float: left; list-style: none; position: relative; width: 300px; margin-right: 30px;"><img class="img-responsive" src="{{ asset('img/clients/'.$client->imagen) }}"  alt="Robot 1"/></div>
     @endforeach
   </div>  
  </section>

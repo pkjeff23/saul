@@ -8,6 +8,7 @@ use App\Clients;
 use App\Products;
 use App\Seccion;
 use App\Seccionimg;
+use App\Brands;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,6 +34,7 @@ class HomeController extends Controller
         $clients = Clients::all();
         $secciones = Seccion::all();
         $imagenes = Seccionimg::all();
+        $brands = Brands::all();
         $productsNew = Products::where('state','=',1)->orderBy('created_at')->take(6)->get();
         $productsDes = Products::where('state','=',1)->orderBy('created_at')->take(6)->get();
         return View('index')->with('portadas',$portadas)
@@ -41,6 +43,7 @@ class HomeController extends Controller
             ->with('productsNew',$productsNew)
             ->with('secciones',$secciones)
             ->with('imagenes',$imagenes)
+            ->with('brands',$brands)
             ->with('productsDes',$productsDes);
     }
 }

@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  <a  href="https://api.whatsapp.com/send?phone=+573017545154&text=hola,%20estoy%20interesado%20en%20un%20producto%20de%20su%20tienda" class="whatsapp bt-enlace2" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
+  <a  href="https://api.whatsapp.com/send?phone=+573006241757&text=hola,%20estoy%20interesado%20en%20un%20producto%20de%20su%20tienda" class="whatsapp bt-enlace2" target="_blank"> <i class="fab fa-whatsapp whatsapp-icon"></i></a>
   <div class="header">
 		<div class="container">
 			<div class="header-grid">

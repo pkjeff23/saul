@@ -15,8 +15,10 @@
         @foreach ($categorias as $categoria)
         <h4 class="text-upper bt-enlace1" onclick="myFunction1('{{$categoria->title}}')"><span class="fa fa-check" style="color:#4CAF50"></span> {{$categoria->title}}</h4>
             @foreach ($subcategorias as $subcategoria)
-            @if ($categoria->id == $subcategoria->category_id)
-              <h6 class="text-upper bt-enlace1" onclick="myFunction1('{{$subcategoria->title}}')"><span class="fa fa-check" style="color:#4CAF50; margin-left: 15px"></span> {{$subcategoria->title}}</h6>
+            @if ($categoria->title == $prueba)
+                @if ($categoria->id == $subcategoria->category_id)
+                  <h6 class="text-upper bt-enlace1" onclick="myFunction2('{{$subcategoria->title}}')"><span class="fa fa-check" style="color:#4CAF50; margin-left: 15px"></span> {{$subcategoria->title}}</h6>
+                @endif
             @endif
             @endforeach
         @endforeach
@@ -63,6 +65,9 @@
   <script type = "text/javascript" language = "javascript">
     function myFunction1(p1) {
       window.location = "catalogo?category="+ p1;
+    }
+    function myFunction2(p1) {
+      window.location = "catalogo?subcategory="+ p1;
     }
   </script>
 @endsection

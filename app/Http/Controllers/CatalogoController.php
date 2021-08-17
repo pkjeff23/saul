@@ -18,6 +18,11 @@ class CatalogoController extends Controller
     {   
         if($request->q == ''){
             if($request->category == ''){
+                if($request->subcategory == ''){
+                    $portadas = Products::where('state', '=', 1)->paginate(15);
+                }else {
+                    $portadas = Products::where('subcategory', '=', $request->subcategory)->paginate(15);
+                }
                 $portadas = Products::where('state', '=', 1)->paginate(15);
             }else {
                 $portadas = Products::where('category', '=', $request->category)->paginate(15);
@@ -25,9 +30,14 @@ class CatalogoController extends Controller
         }else {
             $portadas = Products::where('title', 'like', '%'.$request->q.'%')->paginate(15);
         }
+        $prueba = $request->category;
         $categorias = Categorias::all();
         $subcategorias = Subcategorias::all();
-            return View('Catalogo.index')->with('portadas',$portadas)->with('categorias',$categorias)->with('subcategorias',$subcategorias);
+        return View('Catalogo.index')
+        ->with('portadas',$portadas)
+        ->with('categorias',$categorias)
+        ->with('subcategorias',$subcategorias)
+        ->with('prueba',$prueba);
     }
 
     
